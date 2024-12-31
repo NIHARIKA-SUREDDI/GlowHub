@@ -63,6 +63,28 @@
   .navbar-2 ul li a:hover {
     color: #e91e63;
   }
-
+  .search-container {
+    position: relative;
+  }
+  
+  .search-bar {
+    padding-left: 35px; 
+    
+    border: 1px solid #ccc;
+    border-radius: 15px;
+  }
+  
+  .search-container::before {
+    content: "";
+    background-image: url('https://cdn-icons-png.flaticon.com/128/5636/5636698.png');
+    background-size: 20px 20px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+  }
+  
   
   
