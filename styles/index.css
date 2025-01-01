@@ -85,6 +85,81 @@
     width: 20px;
     height: 20px;
   }
+  /* #img-content img{
+    width: 100%;
+    height: 20rem;
+  
+    
+  
+  } */
+
+  #img-content {
+    position: relative; 
+    background-image: url('https://wallpaperbat.com/img/618065-cosmetic-wallpaper-top-free-cosmetic-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 800px;
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+  }
+  
+  #content {
+    position: absolute;
+    top: 40%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    text-align: center; 
+    color: rgb(179, 37, 141); 
+    
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  #content h2 {
+    margin-bottom: 10px; 
+    font-size: 2rem;
+  }
+  
+  #content p {
+    margin-bottom: 20px;
+    font-size: 1.2rem; 
+  }
+  
+  #content button {
+    background-color: #ff4081; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px;
+    cursor: pointer; 
+  }
+  
+  #content button:hover {
+    background-color: #e0356b; 
+  }
+  
+
+  /* Footer Styles */
+  footer {
+    background-color: #df3d8b;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .footer-links a, .social-media a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  .footer-links a:hover, .social-media a:hover {
+    text-decoration: underline;
+  }
   
   
   
