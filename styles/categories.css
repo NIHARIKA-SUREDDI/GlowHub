@@ -1,14 +1,20 @@
-/* Container styling */
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
 .category {
     margin: 20px;
-    padding: 20px;
+    padding: 5px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     background-color: #f9f9f9;
-}
+} 
 
-/* Button styling */
-#buttons {
+
+ #buttons {
     margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -27,15 +33,15 @@
 }
 
 #buttons button:hover {
-    background-color: #c2185b;
+    background-color: #1818c2;
 }
 
 #buttons button:active {
     transform: scale(0.95);
-}
+} 
 
-/* Price filter styling */
-#price-filter {
+
+  #price-filter {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -78,10 +84,64 @@
 
 #price-filter button:active {
     transform: scale(0.95);
+} 
+
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    padding: 20px;
 }
 
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #fff;
+}
+
+.card img {
+    width: 40%;
+    height: auto;
+}
+
+.product-title {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.add-to-bag {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.add-to-bag:hover {
+    background-color: #0056b3;
+}
+
+.rating .star {
+    color: gold;
+    font-size: 1.2em;
+}
+
+.rating .star.empty {
+    color: #ddd;
+}
+
+.category {
+    padding: 20px;
+} 
+
+
 /* Responsive Design */
-@media (max-width: 768px) {
+ @media (max-width: 768px) {
     #buttons {
         justify-content: center;
     }
@@ -94,4 +154,5 @@
     #price-filter input {
         width: 100%;
     }
-}
+} 
+ 

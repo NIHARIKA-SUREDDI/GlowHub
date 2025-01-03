@@ -39,13 +39,13 @@
 }
 
 .navbar-1 .nav-links a {
-    margin-left: 80px;
+    margin-left: 100px;
     color: white;
     text-decoration: none;
 }
 
 .nav-links img {
-    margin-left: 10px;
+    margin-left: 40px;
     width: 24px;
     height: 20px;
 }
@@ -65,10 +65,10 @@
   /* Navbar 2 styles */
   .navbar-2 {
    background-color: black;
-    padding: 20px 30px;
+    padding: 20px 50px;
   }
 
-  .navbar-2 ul {
+  .navbar-2 > ul {
     list-style: none;
     display: flex;
     padding: 0;
@@ -76,7 +76,7 @@
   }
 
   .navbar-2 ul li {
-    margin-right: 40px;
+    margin-right: 50px;
   }
 
   .navbar-2 ul li a {
@@ -166,6 +166,26 @@
   #content button:hover {
     background-color: #e0356b; 
   }
+  
+  .login-page-logo .logo {
+    width: 35px; 
+    background-color: #df3d8b;
+    
+  }
+
+  .login-page-logo {
+    background-color: pink; /* Sets the background color to pink */
+    padding: 5px; /* Adds some padding around the logo */
+    border-radius: 5px; /* Optional: Adds rounded corners */
+    display: inline-block; /* Ensures the pink background fits the logo size */
+}
+
+.logo {
+   
+    padding: 5px; /* Adds spacing inside the logo */
+    border-radius: 5px; /* Optional: Rounded corners for smoother appearance */
+}
+
   
 
   

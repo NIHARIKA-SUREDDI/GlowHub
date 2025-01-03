@@ -1,5 +1,5 @@
 
-document.addEventListener("DOMContentLoaded", () => {
+   document.addEventListener("DOMContentLoaded", () => {
     const loginText = document.querySelector(".title-text .login");
     const signupText = document.querySelector(".title-text .signup");
     const loginForm = document.querySelector("form.login");

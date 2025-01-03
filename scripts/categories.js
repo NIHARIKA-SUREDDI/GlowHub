@@ -1,78 +1,96 @@
 let container = document.getElementById("container");
-let searchInput = document.getElementById("search-input");
-let productData;
+let bagContainer = document.getElementById("bag-container");
+
 async function fetchData() {
     try {
         let res = await fetch("https://stump-humorous-gorgonzola.glitch.me/product");
         let data = await res.json();
-        console.log(data);
-        productData = data
-        if (productData && typeof productData === 'object') {
-            productData = Object.values(productData);
+        if (data && typeof data === 'object') {
+            data = Object.values(data);
         }
+        
+        
+        data = data.filter(element => element !== null);
+       
 
-        // Filter out any null or undefined elements from the productData array
-        productData = productData.filter(element => element !== null);
-        setupFilters(productData); // Set up the filter functionality
-        appendData(productData); // Display all products initially
+        setupFilters(data); 
+        appendData(data); // Display all products initially
 
        
-        document.getElementById("filter-price").addEventListener("click", () => applyPriceFilter(productData));
+        document.getElementById("filter-price").addEventListener("click", () => applyPriceFilter(data));
     } catch (err) {
         console.error(err);
     }
 }
 
+
 // Function to display the cards on the page
 function appendData(data) {
     container.innerHTML = ""; // Clear previous content
-    data.forEach((item) => container.append(createCard(item)));
+    data.forEach((product) => container.append(createCard(product)));
 }
 
 // Function to create a product card
-function createCard(item) {
+function createCard(product) {
+    console.log({product});
     const card = document.createElement("div");
     card.classList.add("card");
 
     const image = document.createElement("img");
-    image.src = item.imageUrl;
-    image.alt = item.name;
-    image.classList.add('item-image');
-
-    image.addEventListener("click", () => {
-        // Save product name to localStorage
-        localStorage.setItem("productName", item.name);
-        // Redirect to the product details page
-        window.location.href = "productDetails.html";
-    });
-
-    const title = document.createElement("h2");
-    title.textContent = item.name;
-    title.classList.add("item-title");
-
-    const price = document.createElement("p");
-    price.textContent = `MRP: ₹${Number(item.price).toFixed(2)}`;
+    image.src = product.productimage;
+    image.alt = product.productname;
+    image.classList.add('productimage');
 
     const button = document.createElement("button");
     button.classList.add("add-to-bag");
     button.textContent = "Add To Bag";
-    button.onclick = () => addTocartDetails(item.id);
 
 
+    button.addEventListener("click", () => {
+        
+        
+        let bagProducts;
+        const storedBag = localStorage.getItem("bag");
+        try {
+            bagProducts = storedBag ? JSON.parse(storedBag) : [];
+        } catch (e) {
+            console.error("Error parsing bag from localStorage:", e);
+            bagProducts = [];
+        }
+        bagProducts.push(product);
+        console.log('ll',bagProducts);
+        // Save product name to localStorage
+        localStorage.setItem("bag", JSON.stringify(bagProducts));
+        // Redirect to the product details page
+        // window.location.href = "categories.html";
+    });
+
+    const title = document.createElement("h2");
+    title.textContent = product.productname;
+    title.classList.add("product-title");
+
+    const price = document.createElement("p");
+    price.textContent = `MRP: ₹${product.price}`;
+
+    //
+
+    //
     const rating = document.createElement("div");
     rating.classList.add("rating");
-    rating.innerHTML = renderStars(item.ratings) + `<span>${item.ratings}</span>`;
+    rating.innerHTML = renderStars(product.Rating) + `<span>${product.Rating}</span>`;
 
     card.append(image, title, price, rating, button);
-    /*card.addEventListener("click", () => {
-    // Save product name to localStorage
-    localStorage.setItem("productName", item.name);
-    // Redirect to the product details page
-    window.location.href = "product-details.html";
-});*/
 
     return card;
 }
+//
+
+
+
+
+
+
+
 
 // Function to set up category filter buttons
 function setupFilters(data) {
@@ -80,32 +98,35 @@ function setupFilters(data) {
     document.querySelector(".btn-makeup").addEventListener("click", () => filterCategory(data, "Makeup"));
     document.querySelector(".btn-skincare").addEventListener("click", () => filterCategory(data, "Skincare"));
     document.querySelector(".btn-Haircare").addEventListener("click", () => filterCategory(data, "Haircare"));
-    document.querySelector(".btn-Body-Care").addEventListener("click", () => filterCategory(data, "Body Care"));
     document.querySelector(".btn-Fragrance").addEventListener("click", () => filterCategory(data, "Fragrance"));
-    document.querySelector(".btn-Cameras").addEventListener("click", () => filterCategory(data, "Cameras"));
+   
 }
 
 // Function to filter products by category
 function filterCategory(data, category) {
-    const filteredData = data.filter((item) => item.category === category);
+    const filteredData = data.filter((product => product.category === category));
     appendData(filteredData);
 }
 
-// Function to filter products by search input
-function searchProducts(data) {
-    const searchTerm = searchInput.value.toLowerCase();
-    const filteredData = data.filter((item) => item.name.toLowerCase().includes(searchTerm));
-    appendData(filteredData);
-}
+document.getElementById("filter-price").addEventListener("click", () => applyPriceFilter(data));
 
 // Function to apply price range filter
 function applyPriceFilter(data) {
     const minPrice = parseFloat(document.getElementById("min-price").value) || 0;
     const maxPrice = parseFloat(document.getElementById("max-price").value) || Infinity;
 
-    // Filter the products based on the price range
-    const filteredData = data.filter((item) => item.price >= minPrice && item.price <= maxPrice);
-    appendData(filteredData); // Display the filtered products
+    console.log("Min Price:", minPrice);
+    console.log("Max Price:", maxPrice);
+
+    // Ensure product prices are numbers
+    const filteredData = data.filter((product) => {
+        const productPrice = parseFloat(product.price);
+        return productPrice >= minPrice && productPrice <= maxPrice;
+    });
+
+    
+    console.log("Filtered Data:", filteredData);
+    appendData(filteredData); // 
 }
 
 // Rating function
@@ -133,18 +154,5 @@ function renderStars(rating) {
 
     return starHTML;
 }
-
-//start cart //
-let cartData = JSON.parse(localStorage.getItem("cartData")) || [];
-const cartButton = document.getElementById("cart-button");
-const cartContent = document.getElementById("cart-content");
-const cartItems = document.getElementById("cart-items");
-const cartTotalPrice = document.getElementById("cart-total-price");
-const cartCount = document.getElementById("cart-count");
-const checkoutBtn = document.getElementById("checkout-button");
-
-// Toggle cart visibility
-cartButton.addEventListener("click", () => {
-    cartContent.classList.toggle("active");
-});
+fetchData()
 
