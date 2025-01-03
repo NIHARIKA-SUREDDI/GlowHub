@@ -1,41 +1,55 @@
-let cartItemsContainer = document.getElementById('cart-items');
-let cartTotal = document.getElementById('cart-total');
+const cartContainer = document.getElementById("cart-container");
 
-function displayCartItems() {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cartItemsContainer.innerHTML = '';
-    let total = 0;
+// Fetch cart data from localStorage
+function loadCart() {
+    const storedBag = localStorage.getItem("bag");
+    let cartItems = storedBag ? JSON.parse(storedBag) : [];
 
-    cart.forEach((item, index) => {
-        const itemElement = document.createElement('div');
-        itemElement.classList.add('cart-item');
+    // Display the products in the cart
+    cartContainer.innerHTML = ""; // Clear previous data
 
-        itemElement.innerHTML = `
-            <img src="${product.productimage}" alt="${product.productname}" />
-            <p>${product.productname}</p>
-            <p>₹${product.price}</p>
-            <button onclick="removeFromCart(${index})">Remove</button>
-        `;
+    if (cartItems.length === 0) {
+        cartContainer.innerHTML = "<h2>Your cart is empty.</h2>";
+        return;
+    }
 
-        cartItemsContainer.appendChild(productElement);
-        total += parseFloat(product.price);
+    cartItems.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.classList.add("cart-item");
+
+        const image = document.createElement("img");
+        image.src = item.productimage;
+        image.alt = item.productname;
+        image.classList.add("product-image");
+
+        const title = document.createElement("h3");
+        title.textContent = item.productname;
+
+        const price = document.createElement("p");
+        price.textContent = `Price: ₹${item.price}`;
+
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "Remove";
+        removeBtn.addEventListener("click", () => removeFromCart(index));
+
+        card.append(image, title, price, removeBtn);
+        cartContainer.appendChild(card);
     });
-
-    cartTotal.textContent = total.toFixed(2);
 }
 
+// Remove product from cart
 function removeFromCart(index) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    displayCartItems();
+    const storedBag = localStorage.getItem("bag");
+    let cartItems = storedBag ? JSON.parse(storedBag) : [];
+
+    // Remove the selected item
+    cartItems.splice(index, 1);
+
+    // Update localStorage
+    localStorage.setItem("bag", JSON.stringify(cartItems));
+
+    // Refresh the cart display
+    loadCart();
 }
 
-document.getElementById('checkout-btn').addEventListener('click', () => {
-    alert('Proceeding to Checkout!');
-    localStorage.removeItem('cart'); // Clear cart after checkout
-    window.location.href = 'categories.html';
-});
-
-// Display items when page loads
-displayCartItems();
+loadCart();
