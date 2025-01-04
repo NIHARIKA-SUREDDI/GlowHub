@@ -9,11 +9,40 @@
 <body>
     <h1>Your Shopping Bag</h1>
     <div id="cart-container"></div>
+    <div class="checkout-container">
+        <div class="cart-items">
+          <h1>Checkout</h1>
+         
+         
+    
+        <form class="checkout-form" id="checkoutForm">
+          <h2>Billing Details</h2>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required />
+    
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+    
+          <label for="address">Address</label>
+          <input type="text" id="address" name="address" required />
+    
+          <label for="payment">Payment Method</label>
+          <select id="payment" name="payment">
+            <option value="credit-card">Credit Card</option>
+            <option value="paypal">PayPal</option>
+          </select>
+         <div id="btn">
+          <button type="submit">Place Order</button>
+        </div>
+        </form>
+      </div>
+    
+     
 
-    <!-- <div id="cart">
-        <span>Your Cart: <span id="cart-count">0</span> items</span>
-    </div> -->
-
-    <script src="./scripts/cart.js"></script>
+    
 </body>
+<script src="./scripts/cart.js"></script>
+
+
+
 </html>

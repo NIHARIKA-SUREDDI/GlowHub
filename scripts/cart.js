@@ -13,7 +13,7 @@ function loadCart() {
         return;
     }
 
-    cartItems.forEach((item, index) => {
+        cartItems.forEach((item, index) => {
         const card = document.createElement("div");
         card.classList.add("cart-item");
 
@@ -35,6 +35,27 @@ function loadCart() {
         card.append(image, title, price, removeBtn);
         cartContainer.appendChild(card);
     });
+   
+}
+
+// Function to add a product to the cart
+function addToCart(product) {
+    // Get existing cart data
+    const storedBag = localStorage.getItem("bag");
+    let cartItems = storedBag ? JSON.parse(storedBag) : [];
+
+    // Add the new product
+    cartItems.push(product);
+
+    // Update localStorage
+    localStorage.setItem("bag", JSON.stringify(cartItems));
+
+    // Show alert message
+    alert("Item added to bag.");
+
+    // Update cart count (if displayed separately)
+    updateCartCount(cartItems.length);
+    loadCart();
 }
 
 // Remove product from cart
@@ -48,11 +69,26 @@ function removeFromCart(index) {
     // Update localStorage
     localStorage.setItem("bag", JSON.stringify(cartItems));
 
-    // Refresh the cart display
+    alert(" item remove from cart.");
     loadCart();
 }
-function updateCartCount(count) {
-    cartCount.textContent = count; // Set the cart count in the element
-}
 
+
+// const addToBagButton = document.getElementById("add-to-bag-btn");
+// addToBagButton.addEventListener("click", () => addToCart(product));
 loadCart();
+
+
+
+    document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const payment = document.getElementById('payment').value.trim();
+    if (name && email && address && payment) {
+      alert(`Order placed successfully!\n\nName: ${name}\nEmail: ${email}\nAddress: ${address}\nPayment Method: ${payment}`);
+    } else {
+      alert('Please fill in all the fields!');
+    }
+  });
