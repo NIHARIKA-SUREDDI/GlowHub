@@ -70,11 +70,11 @@ function createCard(product) {
     title.classList.add("product-title");
 
     const price = document.createElement("p");
-    price.textContent = `MRP: ₹${product.price}`;
+    price.textContent = `MRP: ${product.price}`;
 
     //
 
-    //
+    
     const rating = document.createElement("div");
     rating.classList.add("rating");
     rating.innerHTML = renderStars(product.Rating) + `<span>${product.Rating}</span>`;
@@ -84,11 +84,6 @@ function createCard(product) {
     return card;
 }
 //
-
-
-
-
-
 
 
 
@@ -112,21 +107,24 @@ document.getElementById("filter-price").addEventListener("click", () => applyPri
 
 // Function to apply price range filter
 function applyPriceFilter(data) {
+    // Get the min and max price values from inputs
     const minPrice = parseFloat(document.getElementById("min-price").value) || 0;
     const maxPrice = parseFloat(document.getElementById("max-price").value) || Infinity;
 
     console.log("Min Price:", minPrice);
     console.log("Max Price:", maxPrice);
 
-    // Ensure product prices are numbers
+    // Filter the data based on price range
     const filteredData = data.filter((product) => {
-        const productPrice = parseFloat(product.price);
+        // Extract numeric value from product price
+        const productPrice = parseFloat(product.price.replace(/[^0-9.]/g, "")) || 0;
+
+        // Compare price within range
         return productPrice >= minPrice && productPrice <= maxPrice;
     });
 
-    
     console.log("Filtered Data:", filteredData);
-    appendData(filteredData); // 
+    appendData(filteredData); // Display filtered products
 }
 
 // Rating function

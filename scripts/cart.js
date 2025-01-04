@@ -1,5 +1,5 @@
 const cartContainer = document.getElementById("cart-container");
-const cartCount = document.getElementById("cart-count");
+const totalAmountElement = document.getElementById("total-amount");
 // Fetch cart data from localStorage
 function loadCart() {
     const storedBag = localStorage.getItem("bag");
@@ -10,9 +10,10 @@ function loadCart() {
 
     if (cartItems.length === 0) {
         cartContainer.innerHTML = "<h2>Your cart is empty.</h2>";
+        totalAmountElement.textContent = "Total: ₹0.00"; // Reset total
         return;
     }
-
+    let totalAmount = 0; // Initialize total amount
         cartItems.forEach((item, index) => {
         const card = document.createElement("div");
         card.classList.add("cart-item");
@@ -26,7 +27,7 @@ function loadCart() {
         title.textContent = item.productname;
 
         const price = document.createElement("p");
-        price.textContent = `Price: ₹${item.price}`;
+        price.textContent = `Price: ${item.price}`;
 
         const removeBtn = document.createElement("button");
         removeBtn.textContent = "Remove";
@@ -34,8 +35,12 @@ function loadCart() {
 
         card.append(image, title, price, removeBtn);
         cartContainer.appendChild(card);
+
+        // Extract numeric value from price and calculate total
+        const numericPrice = parseFloat(item.price.replace(/[^0-9.]/g, "")) || 0;
+        totalAmount += numericPrice;
     });
-   
+    totalAmountElement.textContent = `Total: ₹${totalAmount.toFixed(2)}`; // Format with 2 decimals
 }
 
 // Function to add a product to the cart
@@ -45,7 +50,13 @@ function addToCart(product) {
     let cartItems = storedBag ? JSON.parse(storedBag) : [];
 
     // Add the new product
-    cartItems.push(product);
+    // cartItems.push(product);
+
+    cartItems.push({
+        productname: product.productname,
+        productimage: product.productimage,
+        price: parseFloat(product.price) || 0 // Convert price to number
+    });
 
     // Update localStorage
     localStorage.setItem("bag", JSON.stringify(cartItems));
@@ -53,8 +64,7 @@ function addToCart(product) {
     // Show alert message
     alert("Item added to bag.");
 
-    // Update cart count (if displayed separately)
-    updateCartCount(cartItems.length);
+    
     loadCart();
 }
 

@@ -39,9 +39,10 @@
 }
 
 .navbar-1 .nav-links a {
-    margin-left: 100px;
+    margin-right: 10px;
     color: white;
     text-decoration: none;
+    margin-left: 40px;
 }
 
 .nav-links img {
