@@ -1,5 +1,5 @@
 const cartContainer = document.getElementById("cart-container");
-
+const cartCount = document.getElementById("cart-count");
 // Fetch cart data from localStorage
 function loadCart() {
     const storedBag = localStorage.getItem("bag");
@@ -50,6 +50,9 @@ function removeFromCart(index) {
 
     // Refresh the cart display
     loadCart();
+}
+function updateCartCount(count) {
+    cartCount.textContent = count; // Set the cart count in the element
 }
 
 loadCart();
