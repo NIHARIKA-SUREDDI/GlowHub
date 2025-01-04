@@ -1,66 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Address</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./styles/">
+    <link rel="stylesheet" href="./styles/address.css">
+    <title>Shopping Cart</title>
 </head>
-
 <body>
-    <header>
-        <div>
-            <img src="https://d2un9pqbzgw43g.cloudfront.net/main/nykaa-1200x800-1.png" alt="">
-        </div>
-        <div>
-            <h3> LOGIN </h3>
-        </div>
-        <div>
-            <h3 style="border-bottom: 3px solid red ;color: red;"> ADDRESS </h3>
-        </div>
-        <div>
-            <h3> PAYMENT </h3>
-        </div>
-    </header>
-    <div id="par2">
-        <div id="part1">
-            <h4> Address </h4>
-        </div>
-        <div id="part2">
-            <h3> New Address </h3>
-            <hr>
-            <h5> Select Country </h5>
-            <input type="text" class="look" value="India">
-            <h4> Name : <input type="text" class="look" placeholder="Name"> </h4>
-            <h4> Email : <input type="email" class="look" placeholder="Email"> </h4>
-            <h4> Phone : <input type="number" class="look" placeholder="Phone Number"> </h4>
-            <h4> Code : <input type="text" class="look" placeholder="Postal Code"> </h4>
+ 
+    
+    <div class="checkout-container">
+        <div class="cart-items">
+          <h1>Checkout</h1>
+     
+         
+    
+        <form class="checkout-form" id="checkoutForm">
+          <h2>Billing Details</h2>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required />
+    
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
 
-            <textarea id="ttarea" style="width: 92%;" rows="4" placeholder="Address "></textarea>
-            <button id="but2"> SHIP TO THIS ADDRESS ></button>
-        </div>
-        <div id="part3">
-            <div id="add1">
-                <div id="container">
-                   
-                </div>
-                <div id="box2">
+          <label form="PhoneNumber">PhoneNumber</label>
+          <input type="number" id="PhoneNumber" name="PhoneNumber" required />
 
-                    <div>
-                        <h4> Shipping Charge </h4>
-                        <h4> Free </h4>
-                    </div>
-                    <hr>
-                    <div>
-                        <h4>Grand Total </h4>
-                        <h4 class="totalprice">₹ </h4>
-                    </div>
-                    <hr>
-                </div>
-            </div>
+
+    
+          <label for="address">Address</label>
+          <input type="text" id="address" name="address" required />
+    
+          <label for="payment">Payment Method</label>
+          <select id="payment" name="payment">
+            <option value="credit-card">Credit Card</option>
+            <option value="paypal">PayPal</option>
+          </select>
+         <div id="btn">
+          <button type="submit">Place Order</button>
         </div>
-    </div>
+        </form>
+      </div>
+    
+     
+
+    
+</body>
+<script src="./scripts/address.js"></script>
+
+
+
+</html>
