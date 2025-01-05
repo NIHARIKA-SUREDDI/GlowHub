@@ -7,15 +7,16 @@
   }
 
   .cart-items, .checkout-form {
-    width: 55%;
-    padding: 20px;
+    width: 80%;
+    padding: 10px;
     background: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
   }
 h1{
     margin-left: 20px;
-    color: #ff007f;
+    color: #000000;
+    align-items: center;
   
 }
   h2 {
@@ -54,5 +55,6 @@ h1{
   button:hover {
     background-color: #e60073;
   }
+
 
   
