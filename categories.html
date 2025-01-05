@@ -1,17 +1,17 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/categories.css"/>
-    <title>category</title>
+    <title>Category</title>
 </head>
 <body>
-    <div id="container" class="product-container"></div>
-   
+    <!-- Category and Filters Section -->
     <div class="category-container">
         <div class="category">
-    
             <div id="buttons">
                 <button class="btn btn-all">All</button>
                 <button class="btn btn-makeup">Makeup</button>
@@ -19,7 +19,7 @@
                 <button class="btn btn-Haircare">Haircare</button>
                 <button class="btn btn-Fragrance">Fragrance</button>
             </div>
-    
+
             <div id="price-filter">
                 <label for="min-price">Min Price: ₹</label>
                 <input type="number" id="min-price" placeholder="Min Price" />
@@ -29,11 +29,12 @@
             </div>
         </div>
     </div>
-    
-    <!-- Bag Section -->
-   
+
+    <!-- Product List Section -->
+    <div id="container" class="product-container"></div>
+
     <div id="bag-container" class="bag-container"></div>
-    
+
+    <script src="./scripts/categories.js"></script>
 </body>
-<script src="./scripts/categories.js"></script>
 </html>

@@ -1,28 +1,28 @@
+
 let container = document.getElementById("container");
 let bagContainer = document.getElementById("bag-container");
+
+let allData = []; // Store all products globally
 
 async function fetchData() {
     try {
         let res = await fetch("https://stump-humorous-gorgonzola.glitch.me/product");
         let data = await res.json();
-        if (data && typeof data === 'object') {
-            data = Object.values(data);
+
+        // Ensure data is an array
+        if (!Array.isArray(data)) {
+            data = Object.values(data).filter(element => element !== null);
         }
-        
-        
-        data = data.filter(element => element !== null);
-       
 
-        setupFilters(data); 
-        appendData(data); // Display all products initially
+        allData = data; // Store all products globally
+        setupFilters(allData); 
+        appendData(allData); // Display all products initially
 
-       
-        document.getElementById("filter-price").addEventListener("click", () => applyPriceFilter(data));
+        document.getElementById("filter-price").addEventListener("click", () => applyPriceFilter(allData));
     } catch (err) {
-        console.error(err);
+        console.error("Error fetching data:", err);
     }
 }
-
 
 // Function to display the cards on the page
 function appendData(data) {
@@ -32,7 +32,6 @@ function appendData(data) {
 
 // Function to create a product card
 function createCard(product) {
-    console.log({product});
     const card = document.createElement("div");
     card.classList.add("card");
 
@@ -45,24 +44,16 @@ function createCard(product) {
     button.classList.add("add-to-bag");
     button.textContent = "Add To Bag";
 
-
     button.addEventListener("click", () => {
-        
-        
-        let bagProducts;
-        const storedBag = localStorage.getItem("bag");
         try {
-            bagProducts = storedBag ? JSON.parse(storedBag) : [];
+            let bagProducts = JSON.parse(localStorage.getItem("bag")) || [];
+            bagProducts.push(product);
+            localStorage.setItem("bag", JSON.stringify(bagProducts));
+            alert("Product added to bag successfully!");
         } catch (e) {
-            console.error("Error parsing bag from localStorage:", e);
-            bagProducts = [];
+            console.error("Error adding product to bag:", e);
+            alert("Failed to add product to bag.");
         }
-        bagProducts.push(product);
-        console.log('ll',bagProducts);
-        // Save product name to localStorage
-        localStorage.setItem("bag", JSON.stringify(bagProducts));
-        // Redirect to the product details page
-        // window.location.href = "categories.html";
     });
 
     const title = document.createElement("h2");
@@ -72,9 +63,6 @@ function createCard(product) {
     const price = document.createElement("p");
     price.textContent = `MRP: ${product.price}`;
 
-    //
-
-    
     const rating = document.createElement("div");
     rating.classList.add("rating");
     rating.innerHTML = renderStars(product.Rating) + `<span>${product.Rating}</span>`;
@@ -83,19 +71,43 @@ function createCard(product) {
 
     return card;
 }
-//
-
-
 
 // Function to set up category filter buttons
+// function setupFilters(data) {
+//     document.querySelector(".btn-all").addEventListener("click", () => appendData(allData)); // Show all products
+//     document.querySelector(".btn-makeup").addEventListener("click", () => filterCategory(allData, "Makeup"));
+//     document.querySelector(".btn-skincare").addEventListener("click", () => filterCategory(allData, "Skincare"));
+//     document.querySelector(".btn-Haircare").addEventListener("click", () => filterCategory(allData, "Haircare"));
+//     document.querySelector(".btn-Fragrance").addEventListener("click", () => filterCategory(allData, "Fragrance"));
+// }
 function setupFilters(data) {
-    document.querySelector(".btn-all").addEventListener("click", () => appendData(data));
-    document.querySelector(".btn-makeup").addEventListener("click", () => filterCategory(data, "Makeup"));
-    document.querySelector(".btn-skincare").addEventListener("click", () => filterCategory(data, "Skincare"));
-    document.querySelector(".btn-Haircare").addEventListener("click", () => filterCategory(data, "Haircare"));
-    document.querySelector(".btn-Fragrance").addEventListener("click", () => filterCategory(data, "Fragrance"));
-   
+    const categoryButtons = document.querySelectorAll("#buttons button");
+    
+    categoryButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            // Remove the 'active' class from all buttons
+            categoryButtons.forEach(b => b.classList.remove("active"));
+
+            // Add the 'active' class to the clicked button
+            button.classList.add("active");
+
+            // Show filtered products based on the category
+            if (button.classList.contains("btn-all")) {
+                appendData(allData);
+            } else if (button.classList.contains("btn-makeup")) {
+                filterCategory(allData, "Makeup");
+            } else if (button.classList.contains("btn-skincare")) {
+                filterCategory(allData, "Skincare");
+            } else if (button.classList.contains("btn-Haircare")) {
+                filterCategory(allData, "Haircare");
+            } else if (button.classList.contains("btn-Fragrance")) {
+                filterCategory(allData, "Fragrance");
+            }
+        });
+    });
 }
+
+
 
 // Function to filter products by category
 function filterCategory(data, category) {
@@ -103,36 +115,24 @@ function filterCategory(data, category) {
     appendData(filteredData);
 }
 
-document.getElementById("filter-price").addEventListener("click", () => applyPriceFilter(data));
-
 // Function to apply price range filter
 function applyPriceFilter(data) {
-    // Get the min and max price values from inputs
     const minPrice = parseFloat(document.getElementById("min-price").value) || 0;
     const maxPrice = parseFloat(document.getElementById("max-price").value) || Infinity;
 
-    console.log("Min Price:", minPrice);
-    console.log("Max Price:", maxPrice);
-
-    // Filter the data based on price range
     const filteredData = data.filter((product) => {
-        // Extract numeric value from product price
         const productPrice = parseFloat(product.price.replace(/[^0-9.]/g, "")) || 0;
-
-        // Compare price within range
         return productPrice >= minPrice && productPrice <= maxPrice;
     });
 
-    console.log("Filtered Data:", filteredData);
-    appendData(filteredData); // Display filtered products
+    appendData(filteredData);
 }
 
-// Rating function
+// Function to render star ratings
 function renderStars(rating) {
     const fullStars = Math.floor(rating); // Number of full stars
     const halfStar = rating % 1 >= 0.5 ? 1 : 0; // Check for half star
-    const emptyStars = 5 - fullStars - halfStar; // Remaining stars
-
+    const emptyStars = 5 - fullStars - halfStar; // Remaining empty stars
     let starHTML = "";
 
     // Add full stars
@@ -140,7 +140,7 @@ function renderStars(rating) {
         starHTML += `<span class="star full">★</span>`;
     }
 
-    // Add half star if applicable
+    // Add a half star only if the rating is >= 0.5 after the full stars
     if (halfStar) {
         starHTML += `<span class="star half">★</span>`;
     }
@@ -152,5 +152,6 @@ function renderStars(rating) {
 
     return starHTML;
 }
-fetchData()
 
+
+fetchData();
