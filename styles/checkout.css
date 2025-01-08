@@ -57,4 +57,103 @@ h1{
   }
 
 
-  
+  /* For screens up to 768px */
+@media (max-width: 768px) {
+  .checkout-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .cart-items, .checkout-form {
+    width: 100%;
+    padding: 15px;
+  }
+
+  h1 {
+    margin-left: 10px;
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  input, select, button {
+    width: 100%;
+    padding: 8px;
+  }
+
+  #btn button {
+    width: 120px;
+    height: 35px;
+    margin-left: 0;
+    font-size: 14px;
+  }
+}
+
+/* For screens up to 480px */
+@media (max-width: 480px) {
+  .checkout-container {
+    padding: 5px;
+  }
+
+  .cart-items, .checkout-form {
+    width: 100%;
+    padding: 10px;
+  }
+
+  h1 {
+    margin-left: 5px;
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+
+  input, select, button {
+    width: 100%;
+    padding: 6px;
+  }
+
+  #btn button {
+    width: 100px;
+    height: 30px;
+    font-size: 12px;
+    margin-left: 0;
+  }
+}
+
+/* For small screens up to 360px */
+@media (max-width: 360px) {
+  .checkout-container {
+    padding: 5px;
+  }
+
+  .cart-items, .checkout-form {
+    width: 100%;
+    padding: 8px;
+  }
+
+  h1 {
+    margin-left: 5px;
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 0.9rem;
+  }
+
+  input, select, button {
+    width: 100%;
+    padding: 5px;
+  }
+
+  #btn button {
+    width: 80px;
+    height: 25px;
+    font-size: 10px;
+    margin-left: 0;
+  }
+}

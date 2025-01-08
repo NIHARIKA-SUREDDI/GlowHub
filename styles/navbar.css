@@ -5,6 +5,7 @@
     background-color: black;
     padding: 10px 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
 }
 
 .nav a {
@@ -58,6 +59,8 @@
     padding: 5px 0;
     color: rgb(46, 45, 45);
     transition: color 0.3s, transform 0.3s;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 
@@ -86,13 +89,195 @@
 }
 
 
+/* For screens up to 768px */
 @media (max-width: 768px) {
+    .navbar-1 {
+      flex-direction: column;
+      padding: 10px;
+    }
+  
+    .navbar-1 .nav-links {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .navbar-1 .nav-links a {
+      margin: 5px 0;
+    }
+  
+    .search-bar {
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    .navbar-2 ul {
+      flex-direction: column;
+    }
+  
+    .navbar-2 ul li {
+      margin-bottom: 10px;
+    }
+  
+    #img-content {
+      height: 400px;
+    }
+  
+    #content h2 {
+      font-size: 1.5rem;
+    }
+  
+    #content p {
+      font-size: 1rem;
+    }
+  
+    #content button {
+      padding: 8px 16px;
+    }
+  
+    .container {
+      flex-direction: column;
+    }
+  
     .sub_menu {
-        width: 100%;
-        flex-direction: column;
+      width: 100%;
+      flex-direction: column;
     }
-
+  
     .sub_menu ul {
-        width: 100%;
+      width: 100%;
     }
-}
+  
+    .nav {
+      flex-direction: column;
+      padding: 10px;
+    }
+  
+    .nav a {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+  
+  /* For screens up to 480px */
+  @media (max-width: 480px) {
+    .navbar-1 {
+      padding: 5px;
+    }
+  
+    .navbar-1 .title {
+      font-size: 20px;
+    }
+  
+    .search-bar {
+      width: 100%;
+    }
+  
+    .navbar-2 {
+      padding: 5px;
+    }
+  
+    #img-content {
+      height: 300px;
+    }
+  
+    #content h2 {
+      font-size: 1.2rem;
+    }
+  
+    #content p {
+      font-size: 0.9rem;
+    }
+  
+    #content button {
+      padding: 6px 12px;
+    }
+  
+    .login-page-logo .logo {
+      width: 25px;
+    }
+  
+    .sub_menu {
+      width: 100%;
+      flex-direction: column;
+    }
+  
+    .sub_menu ul {
+      width: 100%;
+    }
+  
+    .nav {
+      flex-direction: column;
+      padding: 5px;
+    }
+  
+    .nav a {
+      padding: 8px;
+      font-size: 12px;
+    }
+  }
+  
+  /* For small screens up to 360px */
+  @media (max-width: 360px) {
+    .navbar-1 {
+      padding: 5px;
+      flex-direction: column;
+    }
+  
+    .navbar-1 .title {
+      font-size: 18px;
+    }
+  
+    .search-bar {
+      width: 100%;
+      padding: 6px;
+    }
+  
+    .navbar-2 {
+      padding: 5px;
+    }
+  
+    #img-content {
+      height: 250px;
+    }
+  
+    #content h2 {
+      font-size: 1rem;
+    }
+  
+    #content p {
+      font-size: 0.8rem;
+    }
+  
+    #content button {
+      padding: 5px 10px;
+      font-size: 0.8rem;
+    }
+  
+    .login-page-logo .logo {
+      width: 20px;
+    }
+  
+    .container {
+      flex-direction: column;
+    }
+  
+    .sub_menu {
+      width: 100%;
+      flex-direction: column;
+    }
+  
+    .sub_menu ul {
+      width: 100%;
+    }
+  
+    .nav {
+      flex-direction: column;
+      padding: 5px;
+    }
+  
+    .nav a {
+      padding: 6px;
+      font-size: 10px;
+    }
+  }
+  

@@ -60,8 +60,10 @@ h1 {
 }
 
 button {
-    padding: 10px 15px;
+    padding: 10px 10px;
     font-size: 14px;
+    margin-top: 10px;
+   
     background-color: #007bff;
     color: white;
     border: none;
@@ -97,6 +99,32 @@ button:hover {
 #Checkout:hover {
     background-color: #388e3c;
 }
+
+.quantity-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px; 
+    /* margin-top: 10px;  */
+}
+
+.quantity-container button {
+    padding: 3px 6px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #007BFF;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 4px;
+}
+
+.quantity-container span {
+    min-width: 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
