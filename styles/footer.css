@@ -148,231 +148,168 @@
 }
 
 /* responsive  */
-/* @media screen and (max-width: 1200px) {
-  .footer-layer-2 {
-    padding: 45px 40px 30px 40px;
-    grid-template-columns: repeat(4, 1fr);
-    height: 163px;
-  }
-  #blackportion {
-    display: none;
+/* Small Devices (Max Width: 768px) */
+@media (max-width: 768px) {
+  footer {
+    display: flex;
+    flex-direction: column; /* Ensure all footer sections stack vertically */
+    align-items: center;
   }
 
-  .footer-activity:first-child {
-    display: none;
-  }
-} */
-
-
-
-/* @media screen and (max-width: 768px) {
-
-  #footer {
-    height: 280px;
-  }
-  #blackportion {
-    display: none;
-  }
-  .footer-layer-2 {
-    row-gap: 50px;
-  }
-
-  .footer-activity {
-    width: 100%;
-    height: 122px;
-    grid-template-columns: 1fr;
-    text-align: center;
-    place-items: center;
-  }
-
-  .footer-layer-3 {
-    position: relative;
-    top: 100px;
-  }
-
-  .footer-activity > div {
-    width: 100%;
-  }
-
-  .footer-social-media a {
-    margin-right: 10px;
-  }
-
-  .footer-layer-3 {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  
-  
-  body {
-    height: 100px;
-  }
-  #blackportion {
-    display: none;
-  }
-  .footer-layer-2 {
-    padding: 0;
-    margin-top: 50px;
-  }
-
-  .footer-layer-2 h4 {
-    font-size: 9px;
-    margin: 0;
-  }
-
-  .footer-activity {
-    height: 100px;
-  }
-
-  .footer-activity > div span {
-    display: none;
-  }
-
-  .footer-layer-2 p {
-    margin: 0;
-    font-size: 8px;
-  }
-
-  .footer-activity img {
-    width: 20%;
-  }
-} */
-
-/* For tablet-sized devices (max-width: 900px) */
-@media screen and (max-width: 900px) {
-  /* Adjust black portion */
   #blackportion {
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    text-align: center;
   }
 
-  /* Adjust individual sections inside blackportion */
   #black1, #black2, #black3 {
     flex: 1;
     width: 100%;
-    text-align: left;
-    padding: 15px 10px;
-  }
-
-  /* Adjust black1's inner divs */
-  #black1 > div {
-    width: 100%;
-    margin-bottom: 5%;
-  }
-
-  /* Adjust form inputs and buttons inside black2 */
-  #black2 form input {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-
-  #black2 form button {
-    width: 100%;
-    padding: 10px;
-  }
-
-  /* Make footer layer-2 more stacked */
-  .footer-layer-2 {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  /* Adjust footer social media grid */
-  .footer-social-media > ul {
-    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 20px;
+    text-align: center;
   }
 
   .footer-layer-1 {
-    padding: 10px;
+    order: 1; /* Topmost */
     flex-direction: column;
     align-items: center;
-  }
-
-  .footer-layer-2 > div h4 {
-    font-size: 1rem;
-  }
-
-  .footer-layer-2 > div p {
-    font-size: 0.875rem;
-  }
-
-  .footer-social-media {
+    gap: 20px;
     padding: 20px 10px;
-  }
-}
-
-/* For mobile devices (max-width: 600px) */
-@media screen and (max-width: 600px) {
-  /* Adjust blackportion for small screens */
-  #blackportion {
-    display: block;
     text-align: center;
-    padding: 10px;
-  }
-
-  /* Adjust form elements inside black2 */
-  #black2 form input, #black2 form button {
     width: 100%;
-    padding: 10px;
-    margin: 5px 0;
   }
 
   .footer-layer-2 {
-    padding: 10px;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  /* Adjust footer social media icons */
-  .footer-social-media > ul {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* Make footer layers stacked vertically */
-  .footer-layer-1 {
+    order: 2; /* Middle layer */
+    display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px 0;
-  }
-
-  .footer-layer-3 {
+    padding: 15px;
+    gap: 20px;
     text-align: center;
-    padding: 10px 0;
-  }
-
-  .footer-credit {
-    font-size: 0.875rem;
-  }
-
-  /* Hide the phone-social-media on smaller devices */
-  .phone-social-media {
-    display: block;
+    width: 100%;
   }
 
   .footer-social-media {
-    display: none;
-  }
-}
-
-/* For very small devices (max-width: 400px) */
-@media screen and (max-width: 400px) {
-  /* Adjust layout and font size for very small screens */
-  .footer-layer-2 {
-    grid-template-columns: 1fr;
-    padding: 10px;
+    order: 3; /* Social media section just before the last footer */
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
   }
 
   .footer-social-media > ul {
-    grid-template-columns: 1fr;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
   }
 
   .footer-layer-3 {
-    font-size: 0.875rem;
+    order: 4; /* Pink footer section is always last */
+    text-align: center;
+    padding: 20px 10px;
+    background-color: #ff1493; /* Pink color */
+    color: white;
+    width: 100%; /* Ensures it spans the full width */
+  }
+
+  .footer-layer-3 > div:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    font-size: 12px;
+    line-height: 18px;
   }
 
   .footer-credit {
-    font-size: 0.75rem;
+    font-size: 12px;
+    margin-top: 15px;
+  }
+}
+
+/* Extra Small Devices (Max Width: 576px) */
+@media (max-width: 576px) {
+  footer {
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking */
+    align-items: center;
+  }
+
+  #blackportion {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    gap: 15px;
+    text-align: center;
+  }
+
+  #black1, #black2, #black3 {
+    flex: 1;
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .footer-layer-1 {
+    order: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-layer-2 {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .footer-social-media {
+    order: 3;
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-social-media > ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-layer-3 {
+    order: 4; /* Ensure pink footer is always last */
+    text-align: center;
+    padding: 15px 10px;
+    background-color: #ff1493; /* Pink color */
+    color: white;
+    width: 100%;
+  }
+
+  .footer-layer-3 > div:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .footer-credit {
+    font-size: 10px;
+    margin-top: 10px;
   }
 }

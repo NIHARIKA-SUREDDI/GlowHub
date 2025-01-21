@@ -158,126 +158,138 @@
     }
   }
   
-  /* For screens up to 480px */
-  @media (max-width: 480px) {
-    .navbar-1 {
-      padding: 5px;
-    }
-  
-    .navbar-1 .title {
-      font-size: 20px;
-    }
-  
-    .search-bar {
-      width: 100%;
-    }
-  
-    .navbar-2 {
-      padding: 5px;
-    }
-  
-    #img-content {
-      height: 300px;
-    }
-  
-    #content h2 {
-      font-size: 1.2rem;
-    }
-  
-    #content p {
-      font-size: 0.9rem;
-    }
-  
-    #content button {
-      padding: 6px 12px;
-    }
-  
-    .login-page-logo .logo {
-      width: 25px;
-    }
-  
-    .sub_menu {
-      width: 100%;
-      flex-direction: column;
-    }
-  
-    .sub_menu ul {
-      width: 100%;
-    }
-  
-    .nav {
-      flex-direction: column;
-      padding: 5px;
-    }
-  
-    .nav a {
-      padding: 8px;
-      font-size: 12px;
-    }
+  /* For screens up to 1024px */
+@media (max-width: 1024px) {
+  .nav {
+    flex-direction: column;
+    padding: 15px;
   }
-  
-  /* For small screens up to 360px */
-  @media (max-width: 360px) {
-    .navbar-1 {
-      padding: 5px;
-      flex-direction: column;
-    }
-  
-    .navbar-1 .title {
-      font-size: 18px;
-    }
-  
-    .search-bar {
-      width: 100%;
-      padding: 6px;
-    }
-  
-    .navbar-2 {
-      padding: 5px;
-    }
-  
-    #img-content {
-      height: 250px;
-    }
-  
-    #content h2 {
-      font-size: 1rem;
-    }
-  
-    #content p {
-      font-size: 0.8rem;
-    }
-  
-    #content button {
-      padding: 5px 10px;
-      font-size: 0.8rem;
-    }
-  
-    .login-page-logo .logo {
-      width: 20px;
-    }
-  
-    .container {
-      flex-direction: column;
-    }
-  
-    .sub_menu {
-      width: 100%;
-      flex-direction: column;
-    }
-  
-    .sub_menu ul {
-      width: 100%;
-    }
-  
-    .nav {
-      flex-direction: column;
-      padding: 5px;
-    }
-  
-    .nav a {
-      padding: 6px;
-      font-size: 10px;
-    }
+
+  .nav a {
+    font-size: 16px;
+    padding: 8px;
   }
-  
+
+  .sub_menu {
+    width: 90%; /* Adjust dropdown width */
+  }
+
+  .sub_menu ul {
+    width: 100%;
+  }
+
+  .search-bar {
+    width: 80%;
+    margin: 10px auto;
+  }
+
+  #img-content {
+    height: 500px;
+  }
+
+  #content h2 {
+    font-size: 2rem;
+  }
+
+  #content p {
+    font-size: 1.1rem;
+  }
+}
+
+/* For screens up to 768px (Tablets) */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .nav a {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .sub_menu {
+    width: 100%; /* Full width for dropdown */
+    flex-direction: column;
+  }
+
+  .sub_menu ul {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  #img-content {
+    height: 400px;
+  }
+
+  #content h2 {
+    font-size: 1.5rem;
+  }
+
+  #content p {
+    font-size: 1rem;
+  }
+
+  #content button {
+    padding: 8px 16px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+}
+
+/* For screens up to 480px (Mobile) */
+@media (max-width: 480px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px;
+  }
+
+  .nav a {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .sub_menu {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .sub_menu ul {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  #img-content {
+    height: 300px;
+  }
+
+  #content h2 {
+    font-size: 1.2rem;
+  }
+
+  #content p {
+    font-size: 0.9rem;
+  }
+
+  #content button {
+    padding: 6px 12px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+}

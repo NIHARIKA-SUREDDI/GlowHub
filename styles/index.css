@@ -190,37 +190,90 @@
 }
 /* Media Queries for Responsive Design */
 
-/* For screens up to 768px */
+/* Medium Devices (Max Width: 992px) */
+@media (max-width: 992px) {
+  .navbar-1 {
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: space-between;
+  }
+
+  .navbar-1 .title {
+    font-size: 20px;
+  }
+
+  .navbar-1 .search-bar {
+    width: 300px; /* Adjust search bar width */
+    margin-top: 10px;
+  }
+
+  .navbar-1 .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .nav-links a, .nav-links img {
+    margin-left: 20px; /* Reduce spacing for smaller screens */
+    margin-right: 10px;
+  }
+
+  #img-content {
+    height: 500px; /* Reduce height for smaller screens */
+  }
+
+  #content {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+  }
+
+  #content h2 {
+    font-size: 1.8rem;
+  }
+
+  #content p {
+    font-size: 1rem;
+  }
+
+  .search-container {
+    margin-bottom: 10px;
+  }
+}
+
+/* Small Devices (Max Width: 768px) */
 @media (max-width: 768px) {
   .navbar-1 {
     flex-direction: column;
+    align-items: center;
     padding: 10px;
+  }
+
+  .navbar-1 .title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .navbar-1 .search-bar {
+    width: 250px;
+    margin-bottom: 10px;
   }
 
   .navbar-1 .nav-links {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
-  .navbar-1 .nav-links a {
-    margin: 5px 0;
+  .nav-links a, .nav-links img {
+    margin: 10px 0;
   }
 
-  .search-bar {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .navbar-2 ul {
-    flex-direction: column;
-  }
-
-  .navbar-2 ul li {
-    margin-bottom: 10px;
+  .navbar-2 > ul {
+    flex-wrap: wrap; /* Allow wrapping for menu items */
+    justify-content: center;
   }
 
   #img-content {
-    height: 400px;
+    height: 400px; /* Further reduce height */
   }
 
   #content h2 {
@@ -228,38 +281,51 @@
   }
 
   #content p {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   #content button {
-    padding: 8px 16px;
-  }
-
-  .container {
-    flex-direction: column;
+    padding: 8px 15px;
+    font-size: 0.9rem;
   }
 }
 
-/* For screens up to 480px */
-@media (max-width: 480px) {
+/* Extra Small Devices (Max Width: 576px) */
+@media (max-width: 576px) {
   .navbar-1 {
     padding: 5px;
   }
 
   .navbar-1 .title {
-    font-size: 20px;
+    font-size: 16px;
+    text-align: center;
   }
 
-  .search-bar {
-    width: 100%;
+  .navbar-1 .search-bar {
+    width: 200px;
   }
 
-  .navbar-2 {
-    padding: 5px;
+  .navbar-1 .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links a, .nav-links img {
+    margin: 5px 0;
+  }
+
+  .navbar-2 > ul {
+    flex-direction: column;
+    align-items: center;
   }
 
   #img-content {
     height: 300px;
+  }
+
+  #content {
+    padding: 10px;
+    top: 50%;
   }
 
   #content h2 {
@@ -267,40 +333,37 @@
   }
 
   #content p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   #content button {
     padding: 6px 12px;
+    font-size: 0.8rem;
   }
 
-  .login-page-logo .logo {
-    width: 25px;
+  .search-container::before {
+    background-size: 16px 16px; /* Reduce icon size */
+    width: 16px;
+    height: 16px;
+    left: 8px;
   }
 }
 
-/* For small screens up to 360px */
-@media (max-width: 360px) {
-  .navbar-1 {
-    padding: 5px;
-    flex-direction: column;
+/* General Alignment Fixes for Small Screens */
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
   }
 
-  .navbar-1 .title {
-    font-size: 18px;
+  .login-page-logo {
+    width: 30px;
+    padding: 5px;
   }
 
   .search-bar {
-    width: 100%;
-    padding: 6px;
-  }
-
-  .navbar-2 {
-    padding: 5px;
-  }
-
-  #img-content {
-    height: 250px;
+    width: 150px;
+    font-size: 12px;
   }
 
   #content h2 {
@@ -308,29 +371,11 @@
   }
 
   #content p {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   #content button {
+    font-size: 0.7rem;
     padding: 5px 10px;
-    font-size: 0.8rem;
-  }
-
-  .login-page-logo .logo {
-    width: 20px;
-  }
-
-  .container {
-    flex-direction: column;
   }
 }
-
-
-
-
-  
-
-  
-  
-  
-  
