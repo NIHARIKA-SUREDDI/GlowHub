@@ -115,7 +115,6 @@ function filterCategory(data, category) {
     appendData(filteredData);
 }
 
-// Function to apply price range filter
 function applyPriceFilter(data) {
     const minPrice = parseFloat(document.getElementById("min-price").value) || 0;
     const maxPrice = parseFloat(document.getElementById("max-price").value) || Infinity;
@@ -125,7 +124,14 @@ function applyPriceFilter(data) {
         return productPrice >= minPrice && productPrice <= maxPrice;
     });
 
-    appendData(filteredData);
+    // Sort the filtered data in ascending order of price
+    const sortedData = filteredData.sort((a, b) => {
+        const priceA = parseFloat(a.price.replace(/[^0-9.]/g, ""));
+        const priceB = parseFloat(b.price.replace(/[^0-9.]/g, ""));
+        return priceA - priceB; // Change to `priceB - priceA` for descending order
+    });
+
+    appendData(sortedData);
 }
 
 // Function to render star ratings

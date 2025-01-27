@@ -55,11 +55,11 @@ function loadCart() {
         card.append(image, title, price, quantityContainer, removeBtn);
         cartContainer.appendChild(card);
 
-        // Extract numeric value from price and calculate total
-        const numericPrice = parseFloat(item.price.replace(/[^0-9.]/g, "")) || 0;
-        totalAmount += numericPrice;
-    });
-    totalAmountElement.textContent = `Total: ₹${totalAmount.toFixed(2)}`; 
+       // Extract numeric value from price and calculate total, considering quantity
+    const numericPrice = parseFloat(item.price.replace(/[^0-9.]/g, "")) || 0;
+    totalAmount += numericPrice * (item.quantity || 1); // Multiply price by quantity
+});
+totalAmountElement.textContent = `Total: ₹${totalAmount.toFixed(2)}`;
 }
 // Update quantity of items in the cart
 function updateQuantity(index, change) {
