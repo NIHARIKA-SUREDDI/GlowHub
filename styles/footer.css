@@ -313,3 +313,247 @@
     margin-top: 10px;
   }
 }
+/* General Footer Styling (Applied Across All Sizes) */
+footer {
+  display: flex;
+  flex-direction: column; /* Stack footer layers vertically */
+  align-items: center;
+  width: 100%; /* Full width of the page */
+}
+
+.footer-layer-3 {
+  order: 99; /* Always ensure it stays last */
+  margin-top: auto; /* Push it to the bottom */
+  text-align: center;
+  background-color: #ff1493; /* Pink color */
+  color: white;
+  width: 100%;
+  padding: 20px 10px;
+}
+
+/* Small Devices (Max Width: 768px) */
+@media (max-width: 768px) {
+  #blackportion {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    text-align: center;
+  }
+
+  #black1, #black2, #black3 {
+    flex: 1;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .footer-layer-1 {
+    order: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 10px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-layer-2 {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    gap: 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-social-media {
+    order: 3;
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-social-media > ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-layer-3 {
+    text-align: center;
+    padding: 20px 10px;
+    width: 100%;
+  }
+
+  .footer-layer-3 > div:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .footer-credit {
+    font-size: 12px;
+    margin-top: 15px;
+  }
+}
+
+/* Extra Small Devices (Max Width: 576px) */
+@media (max-width: 576px) {
+  footer {
+    display: flex;
+    flex-direction: column; /* Ensure vertical stacking */
+    align-items: center;
+  }
+
+  #blackportion {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    gap: 15px;
+    text-align: center;
+  }
+
+  #black1, #black2, #black3 {
+    flex: 1;
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .footer-layer-1 {
+    order: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-layer-2 {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .footer-social-media {
+    order: 3;
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-social-media > ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-layer-3 {
+    text-align: center;
+    padding: 15px 10px;
+    width: 100%;
+  }
+
+  .footer-layer-3 > div:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .footer-credit {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+}
+
+/* Medium Devices (Max Width: 1024px) */
+@media (max-width: 1024px) {
+  #blackportion {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    text-align: center;
+  }
+
+  #black1, #black2, #black3 {
+    flex: 1;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .footer-layer-1 {
+    order: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-layer-2 {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-social-media {
+    order: 3;
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .footer-social-media > ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-layer-3 {
+    text-align: center;
+    padding: 15px 10px;
+    width: 100%;
+  }
+
+  .footer-layer-3 > div:first-child {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .footer-credit {
+    font-size: 11px;
+    margin-top: 10px;
+  }
+}
