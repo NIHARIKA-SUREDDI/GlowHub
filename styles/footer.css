@@ -146,13 +146,13 @@
   text-align: center;
   font-size: 12px;
 }
-
+/* 
 /* responsive  */
 /* Small Devices (Max Width: 768px) */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   footer {
     display: flex;
-    flex-direction: column; /* Ensure all footer sections stack vertically */
+    flex-direction: column; 
     align-items: center;
   }
 
@@ -172,7 +172,7 @@
   }
 
   .footer-layer-1 {
-    order: 1; /* Topmost */
+    order: 1; 
     flex-direction: column;
     align-items: center;
     gap: 20px;
@@ -182,7 +182,7 @@
   }
 
   .footer-layer-2 {
-    order: 2; /* Middle layer */
+    order: 2; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -193,7 +193,7 @@
   }
 
   .footer-social-media {
-    order: 3; /* Social media section just before the last footer */
+    order: 3; 
     margin-top: 20px;
     text-align: center;
     width: 100%;
@@ -206,14 +206,14 @@
     list-style: none;
     padding: 0;
   }
-
-  .footer-layer-3 {
-    order: 4; /* Pink footer section is always last */
+}
+   .footer-layer-3 {
+    order: 4; 
     text-align: center;
     padding: 20px 10px;
-    background-color: #ff1493; /* Pink color */
+    background-color: #ff1493; 
     color: white;
-    width: 100%; /* Ensures it spans the full width */
+    width: 100%; 
   }
 
   .footer-layer-3 > div:first-child {
@@ -223,19 +223,18 @@
     gap: 10px;
     font-size: 12px;
     line-height: 18px;
-  }
-
+  } 
   .footer-credit {
     font-size: 12px;
     margin-top: 15px;
-  }
-}
+  } */
+
 
 /* Extra Small Devices (Max Width: 576px) */
-@media (max-width: 576px) {
+ /* @media (max-width: 576px) {
   footer {
     display: flex;
-    flex-direction: column; /* Ensure vertical stacking */
+    flex-direction: column; 
     align-items: center;
   }
 
@@ -288,15 +287,185 @@
     gap: 10px;
     padding: 0;
     list-style: none;
-  }
+  } 
+}
 
-  .footer-layer-3 {
-    order: 4; /* Ensure pink footer is always last */
+   .footer-layer-3 {
+    order: 4; 
     text-align: center;
     padding: 15px 10px;
-    background-color: #ff1493; /* Pink color */
+    background-color: #ff1493; 
     color: white;
     width: 100%;
+  }
+
+  .footer-layer-3 > div:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    font-size: 10px;
+    line-height: 16px;
+  }  
+
+  .footer-credit {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+
+
+ */
+/* ✅ Small Devices (Max Width: 768px) */
+@media (max-width: 768px) {
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #blackportion {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    text-align: center;
+  }
+
+  #black1, #black2, #black3 {
+    flex: 1;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .footer-layer-1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 10px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-layer-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    gap: 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-social-media {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-social-media > ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+  }
+
+  /* ✅ Ensure footer-layer-3 is always at the bottom */
+  .footer-layer-3 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ff1493;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    z-index: 1000; /* Keeps it above other content */
+  }
+
+  .footer-layer-3 > div:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .footer-credit {
+    font-size: 12px;
+    margin-top: 15px;
+  }
+}
+
+/* ✅ Extra Small Devices (Max Width: 576px) */
+@media (max-width: 576px) {
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #blackportion {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    gap: 15px;
+    text-align: center;
+  }
+
+  #black1, #black2, #black3 {
+    flex: 1;
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .footer-layer-1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-layer-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .footer-social-media {
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-social-media > ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* ✅ Keep footer-layer-3 at the bottom */
+  .footer-layer-3 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ff1493;
+    color: white;
+    text-align: center;
+    padding: 15px 10px;
+    z-index: 1000;
   }
 
   .footer-layer-3 > div:first-child {
