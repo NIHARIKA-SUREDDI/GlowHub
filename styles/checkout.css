@@ -6,11 +6,11 @@
     gap: 20px;
   }
 
-  .cart-items, .checkout-form {
-    width: 80%;
-    padding: 10px;
+  .cart-items {
+    width: 40%;
+    padding: 30px;
     background: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
   }
 h1{
@@ -40,7 +40,7 @@ h1{
   }
 
   #btn button {
-    width:150px;
+    width:120px;
     height: 40px;
     background-color: #ff007f;
     color: white;
@@ -48,12 +48,13 @@ h1{
     font-size: 16px;
     border: none;
     padding: 5px;
+    margin-top: 10px;
     align-items: center;
-    margin-left: 290px;
+    margin-left: 180px;
   }
 
   button:hover {
-    background-color: #e60073;
+    background-color: #af7291;
   }
 
 
